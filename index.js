@@ -1,43 +1,36 @@
 const express = require('express');
 const axios = require('axios');
+const FormData = require('form-data');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Imgur Client ID
-const IMGUR_CLIENT_ID = 'a4d992de24fc960';  // Replace with your own Imgur Client ID
-
-// Middleware for CORS if accessing from the front-end
-const cors = require('cors');
-app.use(cors());
+const IMGBB_API_KEY = '9c8c59b5c6e0c5e814c1bf70dcd8935b';  // Your API key directly here
 
 app.get('/', (req, res) => {
-  res.send('Imgur uploader API by Rakib');
+  res.send('Imgbb uploader API by Rakib');
 });
 
-// Imgur Upload Endpoint
 app.get('/upload', async (req, res) => {
-  const mediaUrl = req.query.url;
-  if (!mediaUrl) return res.json({ error: 'Missing ?url=' });
+  const imageUrl = req.query.url;
+  if (!imageUrl) return res.json({ error: 'Missing ?url=' });
 
   try {
-    const response = await axios.post(
-      'https://api.imgur.com/3/upload',
-      {
-        image: mediaUrl,
-        type: 'url',
-      },
-      {
-        headers: {
-          Authorization: `Client-ID ${IMGUR_CLIENT_ID}`,
-        },
-      }
-    );
+    const form = new FormData();
+    form.append('key', IMGBB_API_KEY);
+    form.append('image', imageUrl);
+
+    const response = await axios.post('https://api.imgbb.com/1/upload', form, {
+      headers: form.getHeaders()
+    });
 
     const data = response.data.data;
 
     res.json({
       status: 'success',
-      image: data.link, // Link for the uploaded image or video
+      image: data.url,
+      display_url: data.display_url,
+      delete_url: data.delete_url
     });
 
   } catch (err) {
@@ -46,8 +39,6 @@ app.get('/upload', async (req, res) => {
   }
 });
 
-// Start server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-  console.log('API created by Rakib Adil');  // Your name added here
+  console.log(`Server running on http://localhost:${PORT}`);
 });

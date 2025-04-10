@@ -1,14 +1,16 @@
 {
-  "name": "rakib-imgur-api",
+  "name": "imgbb-uploader-api",
   "version": "1.0.0",
-  "description": "Imgur uploader API",
   "main": "index.js",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "express": "^4.18.2",
+    "form-data": "^4.0.0"
+  },
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "express": "^4.17.1",
-    "cors": "^2.8.5"
-  }
+  "author": "Rakib",
+  "license": "MIT",
+  "description": "A simple API to upload images to Imgbb using your image URL."
 }
