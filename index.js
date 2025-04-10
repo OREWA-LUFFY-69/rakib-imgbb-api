@@ -1,16 +1,20 @@
 const express = require('express');
 const axios = require('axios');
-const FormData = require('form-data');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const IMGUR_CLIENT_ID = 'a4d992de24fc960';  // Replace with your Imgur Client ID
+// Imgur Client ID
+const IMGUR_CLIENT_ID = 'a4d992de24fc960';  // Replace with your own Imgur Client ID
+
+// Middleware for CORS if accessing from the front-end
+const cors = require('cors');
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Imgur uploader API by Rakib');
 });
 
+// Imgur Upload Endpoint
 app.get('/upload', async (req, res) => {
   const mediaUrl = req.query.url;
   if (!mediaUrl) return res.json({ error: 'Missing ?url=' });
@@ -33,7 +37,7 @@ app.get('/upload', async (req, res) => {
 
     res.json({
       status: 'success',
-      image: data.link,  // Link for the uploaded image or video
+      image: data.link, // Link for the uploaded image or video
     });
 
   } catch (err) {
@@ -42,6 +46,7 @@ app.get('/upload', async (req, res) => {
   }
 });
 
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running at http://localhost:${PORT}`);
 });
