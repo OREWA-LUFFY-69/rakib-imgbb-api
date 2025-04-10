@@ -1,23 +1,14 @@
 {
-  "name": "imgur-uploader",
+  "name": "rakib-imgur-api",
   "version": "1.0.0",
-  "description": "Imgur API uploader by Rakib",
+  "description": "Imgur uploader API",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "axios": "^0.26.1",
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "cors": "^2.8.5"
-  },
-  "engines": {
-    "node": "14.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/OREWA-LUFFY-69/rakib-imgur-api.git"
-  },
-  "author": "Rakib Adil",
-  "license": "MIT"
+  }
 }
