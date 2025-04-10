@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Your Imgur Client ID
+// Imgur Client ID
 const IMGUR_CLIENT_ID = 'a4d992de24fc960';  // Replace with your own Imgur Client ID
 
 // Imgur Upload Endpoint
@@ -38,8 +38,8 @@ app.get('/upload/imgur', async (req, res) => {
   }
 });
 
-// Start server
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
-  console.log('API created by Rakib Adil');
+  console.log('API created by Rakib Adil');  // Your name added here
 });
