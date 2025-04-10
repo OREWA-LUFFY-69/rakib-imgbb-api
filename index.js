@@ -49,4 +49,5 @@ app.get('/upload', async (req, res) => {
 // Start server
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
+  console.log('API created by Rakib Adil');  // Your name added here
 });
