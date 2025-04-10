@@ -1,19 +1,15 @@
 {
-  "name": "rakib-imgur-api",
+  "name": "imgur-upload",
   "version": "1.0.0",
-  "description": "API to upload images and videos to ImgBB and Imgur",
+  "description": "Imgur API integration to upload images and videos and get the URL.Made By Rakib Adil ",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "axios": "^0.26.1",
-    "express": "^4.17.2",
-    "form-data": "^4.0.0"
-  },
-  "engines": {
-    "node": "14.x"
+    "axios": "^0.21.1",
+    "express": "^4.17.1"
   },
   "author": "Rakib Adil",
-  "license": "MIT"
+  "license": "ISC"
 }
