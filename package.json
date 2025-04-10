@@ -1,16 +1,19 @@
 {
-  "name": "imgbb-uploader-api",
+  "name": "rakib-imgur-api",
   "version": "1.0.0",
+  "description": "API to upload images and videos to ImgBB and Imgur",
   "main": "index.js",
-  "dependencies": {
-    "axios": "^1.6.7",
-    "express": "^4.18.2",
-    "form-data": "^4.0.0"
-  },
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Rakib",
-  "license": "MIT",
-  "description": "A simple API to upload images to Imgbb using your image URL."
+  "dependencies": {
+    "axios": "^0.26.1",
+    "express": "^4.17.2",
+    "form-data": "^4.0.0"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "author": "Rakib Adil",
+  "license": "MIT"
 }
