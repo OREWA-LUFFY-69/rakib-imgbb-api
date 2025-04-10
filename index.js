@@ -69,6 +69,11 @@ app.get('/upload/imgur', async (req, res) => {
   }
 });
 
+// Test root endpoint
+app.get('/', (req, res) => {
+  res.send('Rakib Image/Video Upload API');
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
